@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # ! _*_ coding:utf-8 _*_
 __author__ = 'wei.zhang'
-from demo import Calculator
+from calc.demo import Calculator
 import pytest
 import yaml
 
@@ -15,7 +15,7 @@ class TestCalc:
     def teardown(self):
         print("计算结束")
 
-    @pytest.mark.parametrize(('a', 'b', 'c'), yaml.safe_load(open('datas/calc_add.yaml',encoding='utf-8')))
+    @pytest.mark.parametrize(('a', 'b', 'c'), yaml.safe_load(open('datas/calc_add.yaml', encoding='utf-8')))
     def test_add(self, a, b, c):
         """
         测试加法

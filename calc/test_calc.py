@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # ! _*_ coding:utf-8 _*_
 __author__ = 'wei.zhang'
-from calc.demo import Calculator
+from calc.demo.calc import Calculator
 import pytest
 import yaml
 

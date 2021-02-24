@@ -44,6 +44,23 @@ class TestCalc:
             result = get_calc.calc_add(a, b)
         pytest.assume(result == expect)
 
+    @allure.story('测试除法法')
+    @pytest.mark.div
+    @pytest.mark.parametrize(('a', 'b', 'expect'), get_datas('../calc/datas/calc_div.yaml'))
+    @pytest.mark.run(order=3)
+    @pytest.mark.flaky(reruns=5, reruns_delay=1)
+    def test_div(self, get_calc, a, b, expect):
+        """
+        测试加法
+        :param a: 被除数
+        :param b: 除数
+        :param expect: 等于
+        :return:
+        """
+        with allure.step('计算两个数相除'):
+            result = get_calc.calc_div(a, b)
+        pytest.assume(result == expect)
+
     @allure.story('测试减法')
     @pytest.mark.sub
     @pytest.mark.parametrize(('a', 'b', 'expect'), get_datas('../calc/datas/calc_sub.yaml'))
@@ -76,21 +93,4 @@ class TestCalc:
         """
         with allure.step('计算两个数相乘'):
             result = get_calc.calc_mul(a, b)
-        pytest.assume(result == expect)
-
-    @allure.story('测试除法法')
-    @pytest.mark.div
-    @pytest.mark.parametrize(('a', 'b', 'expect'), get_datas('../calc/datas/calc_div.yaml'))
-    @pytest.mark.run(order=3)
-    @pytest.mark.flaky(reruns=5, reruns_delay=1)
-    def test_div(self, get_calc, a, b, expect):
-        """
-        测试加法
-        :param a: 被除数
-        :param b: 除数
-        :param expect: 等于
-        :return:
-        """
-        with allure.step('计算两个数相除'):
-            result = get_calc.calc_div(a, b)
         pytest.assume(result == expect)

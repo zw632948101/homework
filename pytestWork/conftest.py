@@ -7,7 +7,7 @@ import pytest
 from calc.demo.calc import Calculator
 
 
-@pytest.fixture(scope='class')
+@pytest.fixture(scope='module')
 def get_calc():
     print("获取计算器实例")
     calc = Calculator()

@@ -1,0 +1,158 @@
+{
+  "uid" : "4a35a3d910ef7118",
+  "name" : "test_mul[1--999999999--999999999]",
+  "fullName" : "test_calc.TestCalc#test_mul",
+  "historyId" : "77c4a575f484ffd2f894f45ce58512d9",
+  "time" : {
+    "start" : 1614175085169,
+    "stop" : 1614175085185,
+    "duration" : 16
+  },
+  "description" : "\n        测试加法\n        :param a: 被乘数\n        :param b: 乘数\n        :param expect: 等于\n        :return:\n        ",
+  "descriptionHtml" : "<pre><code>    测试加法\n    :param a: 被乘数\n    :param b: 乘数\n    :param expect: 等于\n    :return:\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "fixture_test",
+    "time" : {
+      "start" : 1614175085166,
+      "stop" : 1614175085168,
+      "duration" : 2
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "get_calc",
+    "time" : {
+      "start" : 1614175084180,
+      "stop" : 1614175084180,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "description" : "\n        测试加法\n        :param a: 被乘数\n        :param b: 乘数\n        :param expect: 等于\n        :return:\n        ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "计算两个数相乘",
+      "time" : {
+        "start" : 1614175085169,
+        "stop" : 1614175085169,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : false,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ {
+    "name" : "fixture_test::0",
+    "time" : {
+      "start" : 1614175085187,
+      "stop" : 1614175085187,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "测试乘法"
+  }, {
+    "name" : "feature",
+    "value" : "测试计算器"
+  }, {
+    "name" : "tag",
+    "value" : "flaky(reruns=5, reruns_delay=1)"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=4)"
+  }, {
+    "name" : "tag",
+    "value" : "mul"
+  }, {
+    "name" : "suite",
+    "value" : "test_calc"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCalc"
+  }, {
+    "name" : "host",
+    "value" : "Baron"
+  }, {
+    "name" : "thread",
+    "value" : "2548-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_calc"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "a",
+    "value" : "1"
+  }, {
+    "name" : "b",
+    "value" : "-999999999"
+  }, {
+    "name" : "expect",
+    "value" : "-999999999"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "a084a3e2cf44b700",
+      "status" : "passed",
+      "time" : {
+        "start" : 1614174852432,
+        "stop" : 1614174852449,
+        "duration" : 17
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "run(order=4)", "mul", "flaky(reruns=5, reruns_delay=1)" ]
+  },
+  "source" : "4a35a3d910ef7118.json",
+  "parameterValues" : [ "1", "-999999999", "-999999999" ]
+}

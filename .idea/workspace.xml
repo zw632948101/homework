@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="224950f2-c4ad-4daa-b388-97a446cf3daf" name="Default" comment="补全计算器作业">
-      <change afterPath="$PROJECT_DIR$/.idea/homework.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driverApp/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pytest_hook_test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pytest_hook_test/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pytest_hook_test/pytest_hook_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/basefactory/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/basefactory/browseroperator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/basefactory/webdriveroperator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/case/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/pageObject/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/pageObject/index_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webWork/testData/__init__.py" afterDir="false" />
+    <list default="true" id="224950f2-c4ad-4daa-b388-97a446cf3daf" name="Default" comment="企业微信作业">
+      <change afterPath="$PROJECT_DIR$/Util/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Util/conf/Config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Util/conf/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Util/conf/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Util/log/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Util/log/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webWork/case/test_add_member.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webWork/pageObject/add_member_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webWork/pageObject/main_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driverApp/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/driverApp/chromedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webWork/basefactory/browseroperator.py" beforeDir="false" afterPath="$PROJECT_DIR$/webWork/basefactory/browseroperator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webWork/basefactory/webdriveroperator.py" beforeDir="false" afterPath="$PROJECT_DIR$/webWork/basefactory/webdriveroperator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webWork/pageObject/index_page.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,18 +96,20 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\PycharmProjects\homework\driverApp" />
+      <recent name="G:\PycharmProjects\homework\Util" />
       <recent name="G:\PycharmProjects\homework\pytestWork" />
       <recent name="G:\PycharmProjects\homework" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\PycharmProjects\homework\Util\conf" />
       <recent name="G:\PycharmProjects\homework\driverApp" />
       <recent name="G:\PycharmProjects\homework\webWork\basefactory" />
       <recent name="G:\PycharmProjects\homework\webWork" />
       <recent name="G:\PycharmProjects\homework\calc" />
-      <recent name="G:\PycharmProjects\homework" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for pytest_hook_test.test_mm">
+  <component name="RunManager" selected="Python tests.pytest for test_add_member.TestContact.test_add_member">
     <configuration name="pytest for pytest_hook_test.test_mm" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="homework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -128,6 +127,40 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_add_member.TestContact.test_add_member" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="homework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/webWork/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_add_member.TestContact.test_add_member&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_add_member.TestContact.test_os" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="homework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/webWork/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_add_member.TestContact.test_os&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for test_calc.TestCalc" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="homework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,40 +175,6 @@
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_calc.TestCalc&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_calc.TestCalc.test_add" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="homework" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pytestWork" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_calc.TestCalc.test_add&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_params.test_case1" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="homework" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pytestWork" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_params.test_case1&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -198,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_add_member.TestContact.test_add_member" />
+        <item itemvalue="Python tests.pytest for test_add_member.TestContact.test_os" />
         <item itemvalue="Python tests.pytest for pytest_hook_test.test_mm" />
         <item itemvalue="Python tests.pytest in test_calc.py" />
         <item itemvalue="Python tests.pytest for test_calc.TestCalc" />
-        <item itemvalue="Python tests.pytest for test_calc.TestCalc.test_add" />
-        <item itemvalue="Python tests.pytest for test_params.test_case1" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +223,11 @@
       <workItem from="1614257314044" duration="963000" />
       <workItem from="1614600288176" duration="3053000" />
       <workItem from="1614687129851" duration="4240000" />
-      <workItem from="1615095112590" duration="4274000" />
+      <workItem from="1615095112590" duration="4931000" />
+      <workItem from="1615210614223" duration="3203000" />
+      <workItem from="1615296018967" duration="9614000" />
+      <workItem from="1615380976874" duration="3476000" />
+      <workItem from="1615465819408" duration="7549000" />
     </task>
     <task id="LOCAL-00001" summary="补全计算器作业">
       <created>1613999019839</created>
@@ -275,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614175392669</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="企业微信作业">
+      <created>1615127364824</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615127364824</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -314,7 +324,8 @@
     <MESSAGE value="python 进阶工资案例" />
     <MESSAGE value="python脚本进阶工资案例" />
     <MESSAGE value="pytest实战作业" />
-    <option name="LAST_COMMIT_MESSAGE" value="pytest实战作业" />
+    <MESSAGE value="企业微信作业" />
+    <option name="LAST_COMMIT_MESSAGE" value="企业微信作业" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_calc_TestCalc_test_mul.coverage" NAME="pytest for test_calc.TestCalc.test_mul Coverage Results" MODIFIED="1614084842993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
@@ -327,9 +338,11 @@
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_calc_TestCalc_test_add.coverage" NAME="pytest for test_calc.TestCalc.test_add Coverage Results" MODIFIED="1614171121612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_scope_TestDemo.coverage" NAME="pytest for test_scope.TestDemo Coverage Results" MODIFIED="1614087409065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_calc_TestCalc.coverage" NAME="pytest for test_calc.TestCalc Coverage Results" MODIFIED="1614173177923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
+    <SUITE FILE_PATH="coverage/homework$pytest_for_test_add_member_TestContact_test_add_member.coverage" NAME="pytest for test_add_member.TestContact.test_add_member Coverage Results" MODIFIED="1615472283468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webWork/case" />
     <SUITE FILE_PATH="coverage/homework$pytest_in_test_scope_py.coverage" NAME="pytest in test_scope.py Coverage Results" MODIFIED="1614087416826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$pytest_in_test_calc_py.coverage" NAME="pytest in test_calc.py Coverage Results" MODIFIED="1614174382526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$start.coverage" NAME="start Coverage Results" MODIFIED="1614083133488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pythonAdvance" />
+    <SUITE FILE_PATH="coverage/homework$pytest_for_test_add_member_TestContact_test_os.coverage" NAME="pytest for test_add_member.TestContact.test_os Coverage Results" MODIFIED="1615299518963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webWork/case" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/datas/__init__.py">

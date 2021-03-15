@@ -1,0 +1,11 @@
+which_project: &which_project flowerChaser
+env: &env
+  run: QA
+  updateActionAPI: QA_API
+  BROWSER: chrome
+  version: 2.5.1
+  projectName: *which_project
+
+flowerChaser:
+  <<: *env
+

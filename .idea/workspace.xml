@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="224950f2-c4ad-4daa-b388-97a446cf3daf" name="Default" comment="企业微信作业">
-      <change afterPath="$PROJECT_DIR$/webWork/testData/addmember_data.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="224950f2-c4ad-4daa-b388-97a446cf3daf" name="Default" comment="企业微信作业添加联系人">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webWork/case/test_add_member.py" beforeDir="false" afterPath="$PROJECT_DIR$/webWork/case/test_add_member.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webWork/pageObject/add_member_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/webWork/pageObject/add_member_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webWork/testData/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/webWork/pageObject/address_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webWork/testData/addmember_data.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/webWork/testData/addmember_data.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +217,7 @@
       <workItem from="1615296018967" duration="9614000" />
       <workItem from="1615380976874" duration="3476000" />
       <workItem from="1615465819408" duration="7549000" />
-      <workItem from="1615812912697" duration="3043000" />
+      <workItem from="1615812912697" duration="4975000" />
     </task>
     <task id="LOCAL-00001" summary="补全计算器作业">
       <created>1613999019839</created>
@@ -285,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615812975472</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="企业微信作业添加联系人">
+      <created>1615816187365</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615816187365</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -325,23 +329,8 @@
     <MESSAGE value="python脚本进阶工资案例" />
     <MESSAGE value="pytest实战作业" />
     <MESSAGE value="企业微信作业" />
-    <option name="LAST_COMMIT_MESSAGE" value="企业微信作业" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/webWork/pageObject/address_list.py</url>
-          <line>17</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="tests">
-        <watch expression="addersspage.driver" language="Python" />
-      </configuration>
-    </watches-manager>
+    <MESSAGE value="企业微信作业添加联系人" />
+    <option name="LAST_COMMIT_MESSAGE" value="企业微信作业添加联系人" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_calc_TestCalc_test_mul.coverage" NAME="pytest for test_calc.TestCalc.test_mul Coverage Results" MODIFIED="1614084842993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
@@ -354,7 +343,7 @@
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_calc_TestCalc_test_add.coverage" NAME="pytest for test_calc.TestCalc.test_add Coverage Results" MODIFIED="1614171121612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_scope_TestDemo.coverage" NAME="pytest for test_scope.TestDemo Coverage Results" MODIFIED="1614087409065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$pytest_for_test_calc_TestCalc.coverage" NAME="pytest for test_calc.TestCalc Coverage Results" MODIFIED="1614173177923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
-    <SUITE FILE_PATH="coverage/homework$pytest_for_test_add_member_TestContact_test_add_member.coverage" NAME="pytest for test_add_member.TestContact.test_add_member Coverage Results" MODIFIED="1615815927085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webWork/case" />
+    <SUITE FILE_PATH="coverage/homework$pytest_for_test_add_member_TestContact_test_add_member.coverage" NAME="pytest for test_add_member.TestContact.test_add_member Coverage Results" MODIFIED="1615817710576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webWork/case" />
     <SUITE FILE_PATH="coverage/homework$pytest_in_test_scope_py.coverage" NAME="pytest in test_scope.py Coverage Results" MODIFIED="1614087416826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$pytest_in_test_calc_py.coverage" NAME="pytest in test_calc.py Coverage Results" MODIFIED="1614174382526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pytestWork" />
     <SUITE FILE_PATH="coverage/homework$start.coverage" NAME="start Coverage Results" MODIFIED="1614083133488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pythonAdvance" />

@@ -16,25 +16,31 @@ class AddMemberPage(WebdriverOperator):
         :param name:
         :return:
         """
+        if not name:
+            return False, '联系人不能为空'
         return self.element_input(type='css', locator='#username', input=name)
 
-    def input_english_name(self, english_name: str = None):
+    def input_english_name(self, english_name=None):
         """
         输入别名
         :param english_name:
         :return:
         """
+        if not english_name:
+            return True, '别名为空'
         return self.element_input(type='css', locator='#memberAdd_english_name', input=english_name)
 
-    def input_acctid(self, acctid: str = None):
+    def input_acctid(self, acctid=None):
         """
         输入唯一账号
         :param acctid:
         :return:
         """
+        if not acctid:
+            return False, '账号不能为空'
         return self.element_input(type='css', locator='#memberAdd_acctid', input=acctid)
 
-    def select_gender(self, gender: int = None):
+    def select_gender(self, gender=None):
         """
         选择性别
         :param gender:
@@ -42,36 +48,44 @@ class AddMemberPage(WebdriverOperator):
         """
         return self.element_click(type='css', locator='[name=gender]', index=gender)
 
-    def input_phone(self, phone: str = None):
+    def input_phone(self, phone=None):
         """
         输入手机号
         :param phone:
         :return:
         """
+        if not phone:
+            return True, '手机号为空'
         return self.element_input(type='css', locator='#memberAdd_phone', input=phone)
 
-    def input_telephone(self, telephone: str = None):
+    def input_telephone(self, telephone=None):
         """
         输入座机号
         :param telephone:
         :return:
         """
+        if not telephone:
+            return True, '座机号为空'
         return self.element_input(type='css', locator='#memberAdd_telephone', input=telephone)
 
-    def input_email(self, email: str = None):
+    def input_email(self, email=None):
         """
         输入邮箱
         :param email:
         :return:
         """
+        if not email:
+            return True, '邮箱为空'
         return self.element_input(type='css', locator='#memberAdd_mail', input=email)
 
-    def input_adders(self, adders: str = None):
+    def input_adders(self, adders=None):
         """
         输入地址
         :param adders:
         :return:
         """
+        if not adders:
+            return True, '地址为空'
         return self.element_input(type='css', locator='#memberEdit_address', input=adders)
 
     def click_department_more(self):
@@ -95,12 +109,14 @@ class AddMemberPage(WebdriverOperator):
         """
         return self.element_click(type='css', locator='.js_show_party_selector')
 
-    def input_popup_department_search(self, input: str = None):
+    def input_popup_department_search(self, input=None):
         """
         修改部门弹窗搜索框输入搜索关键字
         :param input:
         :return:
         """
+        if not input:
+            return True, '部门弹窗搜索框输入搜索关键字为空'
         return self.element_input(type='xpath', locator='//*[@id="memberSearchInput"]', index=1, input=input)
 
     def find_select_department(self):
@@ -111,7 +127,7 @@ class AddMemberPage(WebdriverOperator):
         _isOk, index = self.find_elements(type='css', locator='.js_delete')
         return _isOk, index[-1]
 
-    def delete_select_department(self, index: int = None):
+    def delete_select_department(self, index=None):
         """
         删除已选的部门
         :param index:
@@ -152,15 +168,17 @@ class AddMemberPage(WebdriverOperator):
         """
         return self.element_click(type='css', locator='.js_cancel', index=-1)
 
-    def input_position(self, position: str = None):
+    def input_position(self, position=None):
         """
         输入职务
         :param input:
         :return:
         """
+        if not position:
+            return True, '职位为空'
         return self.element_input(type='css', locator='#memberAdd_title', input=position)
 
-    def select_identity(self, index: int = None):
+    def select_identity(self, index=None):
         """
         选择身份
         :param index:
@@ -176,15 +194,17 @@ class AddMemberPage(WebdriverOperator):
         """
         return self.element_click(type='css', locator='[name=sendInvite]')
 
-    def input_extern_position(self, input: str = None):
+    def input_extern_position(self, input=None):
         """
         输入对外信息的职务
         :param input:
         :return:
         """
+        if not input:
+            return True, '对外信息的职务为空'
         return self.element_input(type='css', locator='[name=extern_position]', input=input)
 
-    def select_position(self, index: int = None):
+    def select_position(self, index=None):
         """
         选择对外信息的职务
         :param index:
@@ -192,7 +212,7 @@ class AddMemberPage(WebdriverOperator):
         """
         return self.element_click(type='css', locator='[name=extern_position_set]', index=index)
 
-    def click_save_and_continue_add(self, index: int = None):
+    def click_save_and_continue_add(self, index=None):
         """
         index = None 点击上方的保存并继续添加按钮
         index = 1 点击下方的保存并继续添加按钮
@@ -201,7 +221,7 @@ class AddMemberPage(WebdriverOperator):
         """
         return self.element_click(type='css', locator='.js_btn_continue', index=index)
 
-    def click_cancel(self, index: int = None):
+    def click_cancel(self, index=None):
         """
         index = None 点击上方的取消按钮
         index = 1 点击下方的取消按钮
@@ -210,7 +230,7 @@ class AddMemberPage(WebdriverOperator):
         """
         return self.element_click(type='css', locator='.js_btn_cancel', index=index)
 
-    def click_save(self, index: int = None):
+    def click_save(self, index=None):
         """
         不传index 点击上方的保存按钮
         index传1 点击下方的保存按钮

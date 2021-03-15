@@ -3,6 +3,7 @@
 __author__ = 'wei.zhang'
 
 from webWork.basefactory.webdriveroperator import WebdriverOperator
+from webWork.pageObject.address_list import AddressList
 
 
 class AddMemberPage(WebdriverOperator):
@@ -216,4 +217,5 @@ class AddMemberPage(WebdriverOperator):
         :param index:
         :return:
         """
-        return self.element_click(type='css', locator='.js_btn_save', index=index)
+        self.element_click(type='css', locator='.js_btn_save', index=index)
+        return AddressList(self.driver)

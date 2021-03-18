@@ -5,7 +5,7 @@ __author__ = 'wei.zhang'
 import pytest
 import yaml
 
-from webWork.pageObject.main_page import MainPage
+from autoLoginWork.pageObject.main_page import MainPage
 
 
 def get_datas(filename):
@@ -32,6 +32,18 @@ class TestContact:
         get_datas('../testData/addmember_data.yaml'))
     def test_add_member(self, username, english_name, acctid, phone, telephone, email, adders,
                         position):
+        """
+        测试添加员工
+        :param username:
+        :param english_name:
+        :param acctid:
+        :param phone:
+        :param telephone:
+        :param email:
+        :param adders:
+        :param position:
+        :return:
+        """
         mpage = self.mainPage.click_add_member()
         mpage.input_username(name=username)
         mpage.input_english_name(english_name=english_name)
@@ -46,6 +58,18 @@ class TestContact:
         addersspage = mpage.click_save()
         names = addersspage.get_member()
         assert username in names
+
+    def test_import_member(self):
+        """
+        测试导入员工
+        :return:
+        """
+        mpage = self.mainPage.click_import_member()
+        mpage.upload_file_input(
+            filepath='/Users/guoyong/Work/0_Product/homework/autoLoginWork/testData/通讯录批量导入模板.xlsx')
+        _isOK, filename = mpage.upload_file_name()
+        assert '通讯录批量导入模板.xlsx' == filename[0]
+        mpage.click_confirm_import_button()
 
     def test_get_cookies(self):
         cookies = self.mainPage.driver.get_cookies()

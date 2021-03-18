@@ -2,8 +2,8 @@
 # ! _*_ coding:utf-8 _*_
 __author__ = 'wei.zhang'
 
-from basefactory import WebdriverOperator
-from webWork.pageObject.address_list import AddressList
+from basefactory.webdriveroperator import WebdriverOperator
+from autoLoginWork.pageObject.address_list_page import AddressListPage
 
 
 class AddMemberPage(WebdriverOperator):
@@ -238,4 +238,4 @@ class AddMemberPage(WebdriverOperator):
         :return:
         """
         self.element_click(type='css', locator='.js_btn_save', index=index)
-        return AddressList(self.driver)
+        return AddressListPage(self.driver)

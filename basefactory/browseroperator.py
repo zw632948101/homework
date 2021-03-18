@@ -52,8 +52,9 @@ class BrowserOperator(object):
                 else:
                     chrome_options = webdriver.ChromeOptions()
                     # 不打开浏览器视窗
-                    log.info('不打开浏览器视窗')
-                    chrome_options.add_argument('headless')
+                    if config.get('HEADLESS'):
+                        log.info('不打开浏览器视窗')
+                        chrome_options.add_argument('headless')
                     # 禁用Chrome弹窗
                     log.info('禁用Chrome开发者弹窗')
                     chrome_options.add_argument('disable-infobars')

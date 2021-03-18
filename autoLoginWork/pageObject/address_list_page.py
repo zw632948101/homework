@@ -2,12 +2,12 @@
 # ! _*_ coding:utf-8 _*_
 __author__ = 'wei.zhang'
 
-from basefactory import WebdriverOperator
+from basefactory.webdriveroperator import WebdriverOperator
 
 
-class AddressList(WebdriverOperator):
+class AddressListPage(WebdriverOperator):
     def __init__(self, webdriver=None):
-        super(AddressList, self).__init__(driver=webdriver)
+        super(AddressListPage, self).__init__(driver=webdriver)
 
     def get_member(self):
         self.web_element_wait(type='css', locator='.member_colRight_memberTable_td:nth-child(2)')

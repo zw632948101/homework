@@ -25,8 +25,10 @@ class WebdriverOperator(BrowserOperator):
         截屏保存
         :return:返回路径
         """
-        pic_name = str.split(str(time.time()), '.')[0] + str.split(str(time.time()), '.')[1] + '.png'
-        screent_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f"../SCREENSHOTDIR/{pic_name}"))
+        pic_name = str.split(str(time.time()), '.')[0] + str.split(str(time.time()), '.')[
+            1] + '.png'
+        screent_path = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), f"../SCREENSHOTDIR/{pic_name}"))
         self.driver.get_screenshot_as_file(screent_path)
         return screent_path
 
@@ -69,15 +71,20 @@ class WebdriverOperator(BrowserOperator):
             s = 30
         try:
             if type == 'id':
-                WebDriverWait(self.driver, s, 0.5).until(EC.visibility_of_element_located((By.ID, locator)))
+                WebDriverWait(self.driver, s, 0.5).until(
+                    EC.visibility_of_element_located((By.ID, locator)))
             elif type == 'name':
-                WebDriverWait(self.driver, s, 0.5).until(EC.visibility_of_element_located((By.NAME, locator)))
+                WebDriverWait(self.driver, s, 0.5).until(
+                    EC.visibility_of_element_located((By.NAME, locator)))
             elif type == 'class':
-                WebDriverWait(self.driver, s, 0.5).until(EC.visibility_of_element_located((By.CLASS_NAME, locator)))
+                WebDriverWait(self.driver, s, 0.5).until(
+                    EC.visibility_of_element_located((By.CLASS_NAME, locator)))
             elif type == 'xpath':
-                WebDriverWait(self.driver, s, 0.5).until(EC.visibility_of_element_located((By.XPATH, locator)))
+                WebDriverWait(self.driver, s, 0.5).until(
+                    EC.visibility_of_element_located((By.XPATH, locator)))
             elif type == 'css':
-                WebDriverWait(self.driver, s, 0.5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+                WebDriverWait(self.driver, s, 0.5).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             else:
                 log.error('不能识别元素类型[' + type + ']')
                 return False, '不能识别元素类型[' + type + ']'
@@ -227,7 +234,7 @@ class WebdriverOperator(BrowserOperator):
 
     def element_title_index(self, **kwargs):
         """
-        输入
+        获取title属性
         :param kwargs:
         :return:
         """
@@ -249,4 +256,28 @@ class WebdriverOperator(BrowserOperator):
         if index == []:
             log.error('元素[' + locator + ']查找[' + text + ']下标失败.')
             return False, '元素[' + locator + ']查找[' + text + ']下标失败.'
+        return True, index
+
+    def query_element_text(self, **kwargs):
+        """
+        获取text属性
+        :param kwargs:
+        :return:
+        """
+        try:
+            type = kwargs['type']
+            locator = kwargs['locator']
+        except KeyError:
+            return False, '缺少传参'
+        _isOK, _strLOG = self.find_elements(type, locator)
+        if not _isOK:  # 元素没找到，返回失败结果
+            return _isOK, _strLOG
+        elem = _strLOG
+        index = []
+        for i in range(len(elem)):
+            title = elem[i].text
+            index.append(title)
+        if index == []:
+            log.error('元素[' + locator + ']查找[]下标失败.')
+            return False, '元素[' + locator + ']查找[]下标失败.'
         return True, index

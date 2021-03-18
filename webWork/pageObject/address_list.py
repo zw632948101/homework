@@ -2,7 +2,7 @@
 # ! _*_ coding:utf-8 _*_
 __author__ = 'wei.zhang'
 
-from basefactory import WebdriverOperator
+from basefactory.webdriveroperator import WebdriverOperator
 
 
 class AddressList(WebdriverOperator):

@@ -24,10 +24,14 @@ class TestContact:
         self.mainPage = MainPage()
         self.mainPage.web_implicitly_wait()
 
+    def teardown(self):
+        self.mainPage.close_browser()
+
     @pytest.mark.parametrize(
         ('username', 'english_name', 'acctid', 'phone', 'telephone', 'email', 'adders', 'position'),
         get_datas('../testData/addmember_data.yaml'))
-    def test_add_member(self, username, english_name, acctid, phone, telephone, email, adders, position):
+    def test_add_member(self, username, english_name, acctid, phone, telephone, email, adders,
+                        position):
         mpage = self.mainPage.click_add_member()
         mpage.input_username(name=username)
         mpage.input_english_name(english_name=english_name)
@@ -42,3 +46,7 @@ class TestContact:
         addersspage = mpage.click_save()
         names = addersspage.get_member()
         assert username in names
+
+    def test_get_cookies(self):
+        cookies = self.mainPage.driver.get_cookies()
+        print(cookies)

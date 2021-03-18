@@ -14,8 +14,6 @@ from Util.log import log
 
 class BrowserOperator(object):
     def __init__(self, driver: WebDriver = None):
-        BASEFACTORYDIR = os.path.join(os.path.dirname(__file__), "../../driverApp/chromedriver.exe")
-        self.driver_path = os.path.abspath(BASEFACTORYDIR)
         self.driver = driver
 
     def open_url(self, **kwargs):
@@ -24,35 +22,57 @@ class BrowserOperator(object):
         :param kwargs:
         :return:
         """
+        import platform
+        system = platform.system()
+        if system == 'Windows':
+            find_util = 'chromedriver.exe'
+        else:
+            find_util = 'chromedriver'
+        BASEFACTORYDIR = os.path.join(os.path.dirname(__file__), "./../driverApp/" + find_util)
+        driver_path = os.path.abspath(BASEFACTORYDIR)
+        log.info(driver_path)
         try:
             url = kwargs['locator']
         except KeyError:
-            log.error('没有URL参数')
-            return False, '没有URL参数'
+            url = config.get('LOCATOR')
+            if not url:
+                return False, '没有URL参数'
 
         try:
             type = config.get('BROWSER')  # 从配置文件里取浏览器的类型
             if type == 'chrome':
                 log.info('使用chrome浏览器进行测试')
-                chrome_options = Options()
+
                 # 添加本地调试
-                log.info(f'本地调试：{kwargs.get("debugger_address")},为空时不复用浏览器')
-                chrome_options.debugger_address = kwargs.get('debugger_address')
-                # 禁用Chrome 策略
-                # log.info('不打开浏览器视窗')
-                # chrome_options.add_argument('disable-infobars')
-                # 禁用Chrome弹窗
-                # log.info('禁用Chrome开发者弹窗')
-                # chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
+                cookies = config.get('COOKIES')
+                debugmode = config.get('DEBUG_MODE')
+                if debugmode == 'debugger':
+                    chrome_options = Options()
+                    log.info(f'本地调试：{config.get("DEBUGGER_ADDERESS")},为空时不复用浏览器')
+                    chrome_options.debugger_address = config.get('DEBUGGER_ADDERESS')
+                else:
+                    chrome_options = webdriver.ChromeOptions()
+                    # 不打开浏览器视窗
+                    log.info('不打开浏览器视窗')
+                    chrome_options.add_argument('headless')
+                    # 禁用Chrome弹窗
+                    log.info('禁用Chrome开发者弹窗')
+                    chrome_options.add_argument('disable-infobars')
+                    chrome_options.add_experimental_option("useAutomationExtension", False)
+                    chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
                 # 启用Chrome浏览器
                 log.info('启用Chrome浏览器')
-                self.driver = webdriver.Chrome(options=chrome_options, executable_path=self.driver_path)
+                self.driver = webdriver.Chrome(options=chrome_options, executable_path=driver_path)
                 # 将浏览器窗口放大全屏
                 log.info('将浏览器窗口放大全屏')
                 self.driver.maximize_window()
                 # 打开测试地址
                 log.info('打开测试地址')
                 self.driver.get(url)
+                if debugmode == 'cookies':
+                    log.info('使用cookies测试')
+                    for cookie in cookies:
+                        self.driver.add_cookie(cookie)
             elif type == 'IE':
                 log.info('IE 浏览器')
             else:

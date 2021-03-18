@@ -13,7 +13,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 
 from Util.log import log
-from webWork.basefactory.browseroperator import BrowserOperator
+from basefactory import BrowserOperator
 
 
 class WebdriverOperator(BrowserOperator):

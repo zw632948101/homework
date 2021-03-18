@@ -2,14 +2,16 @@
 # ! _*_ coding:utf-8 _*_
 __author__ = 'wei.zhang'
 
-from basefactory.webdriveroperator import WebdriverOperator
+from basefactory import WebdriverOperator
 from webWork.pageObject.add_member_page import AddMemberPage
 
 
 class MainPage(WebdriverOperator):
     def __init__(self):
         super(MainPage, self).__init__()
-        _idOK, self.driver = self.open_url()
+        locator = 'https://work.weixin.qq.com/wework_admin/frame'
+        debugger_address = '127.0.0.1:9222'
+        _idOK, self.driver = self.open_url(locator=locator, debugger_address=debugger_address)
 
     def click_add_member(self):
         """

@@ -25,7 +25,7 @@ class TestContact:
         self.mainPage.web_implicitly_wait()
 
     def teardown(self):
-        self.mainPage.close_browser()
+        self.mainPage.driver.quit()
 
     @pytest.mark.parametrize(
         ('username', 'english_name', 'acctid', 'phone', 'telephone', 'email', 'adders', 'position'),

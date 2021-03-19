@@ -1,4 +1,4 @@
-which_project: &which_project webWork
+which_project: &which_project authLoginWork
 env: &env
   run: QA
   updateActionAPI: QA_API
@@ -13,6 +13,14 @@ authLoginWork:
   LOCATOR: 'https://work.weixin.qq.com/wework_admin/frame'
   DEBUG_MODE: cookies
   HEADLESS: True
+  COMMAND_EXECUTOR: 'http://localhost:4723/wd/hub'
+  DESIRED_CAPS:
+    platformName: Android
+    platformVersion: '6.0'
+    deviceName: 'emulator-5554'
+    appPackage: com.xueqiu.android
+    appActivity: .view.WelcomeActivityAlias
+
 
 webWork:
   <<: *env

@@ -5,11 +5,13 @@ __author__ = 'wei.zhang'
 from basefactory.webdriveroperator import WebdriverOperator
 from autoLoginWork.pageObject.add_member_page import AddMemberPage
 from autoLoginWork.pageObject.import_member_page import ImportMemberPage
+from basefactory.browseroperator import BrowserOperator
+
 
 class MainPage(WebdriverOperator):
     def __init__(self):
         super(MainPage, self).__init__()
-        _idOK, self.driver = self.open_url()
+        _idOK, self.driver = BrowserOperator().open_url()
 
     def click_add_member(self):
         """

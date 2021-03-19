@@ -7,18 +7,19 @@
 
 import os
 import time
+
+from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-
 from Util.log import log
-from basefactory.browseroperator import BrowserOperator
 
 
-class WebdriverOperator(BrowserOperator):
-    def __init__(self, driver=None):
-        super(WebdriverOperator, self).__init__(driver=driver)
+class WebdriverOperator:
+    def __init__(self, driver: webdriver = None):
+        super(WebdriverOperator, self).__init__()
+        self.driver = driver
 
     def get_screenshot_as_file(self):
         """

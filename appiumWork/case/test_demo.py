@@ -5,6 +5,7 @@
 # @File : test_demo.py
 # @Software: PyCharm
 from appiumWork.pageObj.main_page import MainPage
+import time
 
 
 class TestDemo:
@@ -12,4 +13,6 @@ class TestDemo:
         self.mainPage = MainPage()
 
     def test_demo(self):
+        self.mainPage.click_search()
         self.mainPage.search_send('阿里巴巴')
+        time.sleep(10)

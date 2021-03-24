@@ -62,7 +62,10 @@ class BrowserOperator(object):
                     chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
                 # 启用Chrome浏览器
                 log.info('启用Chrome浏览器')
-                self.driver = webdriver.Chrome(options=chrome_options, executable_path=driver_path)
+                if os.path.isfile(driver_path):
+                    self.driver = webdriver.Chrome(options=chrome_options, executable_path=driver_path)
+                else:
+                    self.driver = webdriver.Chrome(options=chrome_options)
                 # 将浏览器窗口放大全屏
                 log.info('将浏览器窗口放大全屏')
                 self.driver.maximize_window()

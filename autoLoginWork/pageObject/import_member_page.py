@@ -18,7 +18,7 @@ class ImportMemberPage(WebdriverOperator):
         :param filepath:
         :return:
         """
-        return self.element_input(type='css', locator='#js_upload_file_input', input=filepath)
+        return self.elements_input(type='css', locator='#js_upload_file_input', input=filepath)
 
     def upload_file_name(self):
         """
@@ -32,18 +32,18 @@ class ImportMemberPage(WebdriverOperator):
         点击确认导入按钮
         :return:
         """
-        return self.element_click(type='css', locator='#submit_csv')
+        return self.elements_click(type='css', locator='#submit_csv')
 
     def click_import_template(self):
         """
         点击填写通讯录模板后导入链接
         :return:
         """
-        return self.element_click(type='css', locator='.js_template_tip a')
+        return self.elements_click(type='css', locator='.js_template_tip a')
 
     def click_download_template(self):
         """
         点击下载模板按钮
         :return:
         """
-        return self.element_click(type='css', locator='.ww_fileImporter_header a')
+        return self.elements_click(type='css', locator='.ww_fileImporter_header a')

@@ -17,7 +17,10 @@ class AppOperator:
         打开测试APP
         :return:
         """
-        desired_caps = config.get('DESIRED_CAPS')
-        command_executor = config.get('COMMAND_EXECUTOR')
-        driver = webdriver.Remote(command_executor, desired_caps)
+        try:
+            desired_caps = config.get('DESIRED_CAPS')
+            command_executor = config.get('COMMAND_EXECUTOR')
+            driver = webdriver.Remote(command_executor, desired_caps)
+        except Exception as E:
+            return False
         return driver

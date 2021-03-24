@@ -18,7 +18,7 @@ class MainPage(WebdriverOperator):
         点击添加联系人按钮
         :return:
         """
-        self.element_click(type='css', locator='.index_service_cnt_itemWrap:nth-child(1)')
+        self.elements_click(type='css', locator='.index_service_cnt_itemWrap:nth-child(1)')
         return AddMemberPage(self.driver)
 
     def click_import_member(self):
@@ -26,5 +26,5 @@ class MainPage(WebdriverOperator):
         点击导入联系人按钮
         :return:
         """
-        self.element_click(type='css', locator='.index_service_cnt_itemWrap:nth-child(2)')
+        self.elements_click(type='css', locator='.index_service_cnt_itemWrap:nth-child(2)')
         return ImportMemberPage(self.driver)

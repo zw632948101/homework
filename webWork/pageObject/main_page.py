@@ -17,5 +17,5 @@ class MainPage(WebdriverOperator):
         点击添加联系人按钮
         :return:
         """
-        self.element_click(type='css', locator='.index_service_cnt_itemWrap:nth-child(1)')
+        self.elements_click(type='css', locator='.index_service_cnt_itemWrap:nth-child(1)')
         return AddMemberPage(self.driver)

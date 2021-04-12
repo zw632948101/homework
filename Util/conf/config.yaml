@@ -13,6 +13,9 @@ authLoginWork:
   LOCATOR: 'https://work.weixin.qq.com/wework_admin/frame'
   DEBUG_MODE: cookies
   HEADLESS: True
+  ERROR_MAX: 5
+  BLACK_LIST:
+    - ['id','com.xueqiu.android:id/iv_close']
   COMMAND_EXECUTOR: 'http://localhost:4723/wd/hub'
   DESIRED_CAPS:
     platformName: Android

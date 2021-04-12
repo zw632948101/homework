@@ -21,8 +21,7 @@ def get_config(file_path=None):
         if config.get('which_project') in config.keys():
             return config.get(config.get('which_project'))
         else:
-            log.error('未选择项目配置!')
-            exit(0)
+            return config
 
 
 def get_ini(file_path=None):

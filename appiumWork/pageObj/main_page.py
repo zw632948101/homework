@@ -24,7 +24,7 @@ class MainPage(WebdriverOperator):
         点击搜索输入框
         :return:
         """
-        return self.element_click(type='id', locator='com.xueqiu.android:id/tv_search')
+        return self.click(by='id', locator='com.xueqiu.android:id/tv_search')
 
     def search_send(self, sendNaem):
         """
@@ -32,4 +32,4 @@ class MainPage(WebdriverOperator):
         :param snedNaem:
         :return:
         """
-        return self.element_input(type='id', locator='com.xueqiu.android:id/search_input_text0', input=sendNaem)
+        return self.element_input(by='id', locator='com.xueqiu.android:id/search_input_text0', input=sendNaem)

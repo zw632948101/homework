@@ -1,0 +1,19 @@
+id: "id"
+xpath: "xpath"
+text: "link text"
+partial_link_text: "partial link text"
+name: "name"
+tag: "tag name"
+class: "class name"
+css: "css selector"
+ios_predicate: '-ios predicate string'
+ios_uiautomation: '-ios uiautomation'
+ios_class_chain: '-ios class chain'
+android_uiautomator: '-android uiautomator'
+android_viewtag: '-android viewtag'
+datamatcher: '-android datamatcher'
+viewmatcher: '-android viewmatcher'
+win_uiautomation: '-windows uiautomation'
+accessibility_id: 'accessibility id'
+image: '-image'
+custom: '-custom'

@@ -12,22 +12,23 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
 from Util.log import log
+from Util.conf import get_config, config
 
 
 class WebdriverOperator:
     def __init__(self, driver: webdriver = None):
         super(WebdriverOperator, self).__init__()
         self.driver = driver
+        self.conf = get_config('/Users/guoyong/Work/0_Product/homework/basefactory/by.yaml')
+        self.error_cont = 0
 
     def get_screenshot_as_file(self):
         """
         截屏保存
         :return:返回路径
         """
-        pic_name = str.split(str(time.time()), '.')[0] + str.split(str(time.time()), '.')[
-            1] + '.png'
+        pic_name = str(time.time()).replace('.', '') + '.png'
         screent_path = os.path.abspath(
             os.path.join(os.path.dirname(__file__), f"../SCREENSHOTDIR/{pic_name}"))
         self.driver.get_screenshot_as_file(screent_path)
@@ -41,7 +42,7 @@ class WebdriverOperator:
         """
         隐式等待
         :return:
-        type_  存时间
+        by  存时间
         """
         try:
             s = kwargs['time']
@@ -61,7 +62,7 @@ class WebdriverOperator:
         :return:
         """
         try:
-            type_ = kwargs['type']
+            by = kwargs['by']
             locator = kwargs['locator']
         except KeyError:
             log.error('未传需要等待元素的定位参数')
@@ -71,156 +72,77 @@ class WebdriverOperator:
         except KeyError:
             s = 30
         try:
-            if type_ == 'id':
+            if self.conf.get(by):
                 WebDriverWait(self.driver, s, 0.5).until(
-                    EC.visibility_of_element_located((By.ID, locator)))
-            elif type_ == 'name':
-                WebDriverWait(self.driver, s, 0.5).until(
-                    EC.visibility_of_element_located((By.NAME, locator)))
-            elif type_ == 'class':
-                WebDriverWait(self.driver, s, 0.5).until(
-                    EC.visibility_of_element_located((By.CLASS_NAME, locator)))
-            elif type_ == 'xpath':
-                WebDriverWait(self.driver, s, 0.5).until(
-                    EC.visibility_of_element_located((By.XPATH, locator)))
-            elif type_ == 'css':
-                WebDriverWait(self.driver, s, 0.5).until(
-                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+                    EC.visibility_of_element_located((self.conf.get(by), locator)))
             else:
-                log.error('不能识别元素类型[' + type_ + ']')
-                return False, '不能识别元素类型[' + type_ + ']'
+                log.error('不能识别元素类型[' + by + ']')
+                return False, '不能识别元素类型[' + by + ']'
         except NoSuchElementException:
             log.error('元素[' + locator + ']等待出现超时')
             return False, '元素[' + locator + ']等待出现超时'
         log.info('元素[' + locator + ']等待出现成功')
         return True, '元素[' + locator + ']等待出现成功'
 
-    def find_element(self, type_, locator):
+    def find(self, by, locator=None):
         """
-        定位元素
-        :param type:
-        :param itor:
-        :return:
-        """
-        type_ = str.lower(type_)
-        try:
-            if type_ == 'id':
-                elem = self.driver.find_element(By.ID, locator)
-            elif type_ == 'name':
-                elem = self.driver.find_element(By.NAME, locator)
-            elif type_ == 'class':
-                elem = self.driver.find_element(By.CLASS_NAME, locator)
-            elif type_ == 'xpath':
-                elem = self.driver.find_element(By.XPATH, locator)
-            elif type_ == 'css':
-                elem = self.driver.find_element(By.CSS_SELECTOR, locator)
-            else:
-                log.error('不能识别元素类型:[' + type_ + ']')
-                return False, '不能识别元素类型:[' + type_ + ']'
-        except Exception:
-            screenshot_path = self.get_screenshot_as_file()
-            log.error('获取[' + type_ + ']元素[' + locator + ']失败,已截图[' + screenshot_path + '].')
-            return False, '获取[' + type_ + ']元素[' + locator + ']失败,已截图[' + screenshot_path + '].'
-        log.info(elem)
-        return True, elem
-
-    def find_elements(self, type_, locator):
-        """
-        定位元素
-        :param type:
-        :param itor:
-        :return:
-        """
-        type_ = str.lower(type_)
-        try:
-            if type_ == 'id':
-                elem = self.driver.find_elements(By.ID, locator)
-            elif type_ == 'name':
-                elem = self.driver.find_elements(By.NAME, locator)
-            elif type_ == 'class':
-                elem = self.driver.find_elements(By.CLASS_NAME, locator)
-            elif type_ == 'xpath':
-                elem = self.driver.find_elements(By.XPATH, locator)
-            elif type_ == 'css':
-                elem = self.driver.find_elements(By.CSS_SELECTOR, locator)
-            else:
-                log.error('不能识别元素类型:[' + type_ + ']')
-                return False, '不能识别元素类型:[' + type_ + ']'
-        except Exception:
-            screenshot_path = self.get_screenshot_as_file()
-            log.error('获取[' + type_ + ']元素[' + locator + ']失败,已截图[' + screenshot_path + '].')
-            return False, '获取[' + type_ + ']元素[' + locator + ']失败,已截图[' + screenshot_path + '].'
-        log.info(elem)
-        return True, elem
-
-    def find_index_elements(self, type_, locator, index):
-        """
-        定位元素
-        :param type_:
+        查找元素
+        :param by:
         :param locator:
-        :param index:
         :return:
         """
+        try:
+            if isinstance(by, tuple):
+                elem = self.driver.find_elements(*by)
+            else:
+                elem = self.driver.find_element(by, locator)
+            self.error_cont = 0
+            log.info(f'获取元素{by, locator}成功:{elem}')
+            return elem
+        except Exception as e:
+            self.error_cont += 1
+            if self.error_cont >= config.get('ERROR_MAX'):
+                screenshot_path = self.get_screenshot_as_file()
+                log.error(e)
+                log.error(f'获取元素{by, locator}失败,已截图[{screenshot_path}].')
+                raise e
+            for black in config.get('BLACK_LIST'):
+                elem = self.driver.find_elements(*black)
+                if len(elem) > 0:
+                    elem[0].click()
+                    return self.find(by, locator)
 
-        type_ = str.lower(type_)
-        _isOK, _strLOG = self.find_element(type_, locator)
-        return True, _strLOG[index]
-
-    def element_click(self, **kwargs):
+    def click(self, **kwargs):
         """
         点击
         :param kwargs:
         :return:
         """
         try:
-            type_ = kwargs['type']
+            by = self.conf.get(kwargs['by'])
             locator = kwargs['locator']
+            index = kwargs.get('index')
         except KeyError:
             log.error('缺少传参')
             return False, '缺少传参'
-        _isOK, _strLOG = self.find_element(type_, locator)
-        if not _isOK:  # 元素没找到，返回失败结果
-            return _isOK, _strLOG
-        elem = _strLOG
+        elem = self.find((by, locator))[index] if index else self.find(by, locator)
         try:
             elem.click()
-        except Exception:
-            screenshot_path = self.get_screenshot_as_file()
-            log.error('元素[' + locator + ']点击失败,已截图[' + screenshot_path + '].')
-            return False, '元素[' + locator + ']点击失败,已截图[' + screenshot_path + '].'
-        log.info('元素[' + locator + ']点击成功')
-        return True, '元素[' + locator + ']点击成功'
-
-    def elements_click(self, **kwargs):
-        """
-        点击
-        :param kwargs:
-        :return:
-        """
-        try:
-            type_ = kwargs['type']
-            locator = kwargs['locator']
-        except KeyError:
-            log.error('缺少传参')
-            return False, '缺少传参'
-        try:
-            index = kwargs['index']
-            if not index:
-                index = 0
-        except KeyError:
-            index = 0
-        _isOK, _strLOG = self.find_index_elements(type_, locator, index)
-        if not _isOK:  # 元素没找到，返回失败结果
-            return _isOK, _strLOG
-        elem = _strLOG
-        try:
-            elem.click()
-        except Exception:
-            screenshot_path = self.get_screenshot_as_file()
-            log.error('元素[' + locator + ']点击失败,已截图[' + screenshot_path + '].')
-            return False, '元素[' + locator + ']点击失败,已截图[' + screenshot_path + '].'
-        log.info('元素[' + locator + ']点击成功')
-        return True, '元素[' + locator + ']点击成功'
+            self.error_cont = 0
+            log.info('元素[' + locator + ']点击成功')
+            return True, '元素[' + locator + ']点击成功'
+        except Exception as e:
+            self.error_cont += 1
+            if self.error_cont >= config.get('ERROR_MAX'):
+                screenshot_path = self.get_screenshot_as_file()
+                log.error(e)
+                log.error(f'获取元素{by, locator}失败,已截图[{screenshot_path}].')
+                raise e
+            for black in config.get('BLACK_LIST'):
+                elem = self.driver.find_elements(*black)
+                if len(elem) > 0:
+                    elem[0].click()
+                    return self.click(**kwargs)
 
     def element_input(self, **kwargs):
         """
@@ -229,55 +151,30 @@ class WebdriverOperator:
         :return:
         """
         try:
-            type_ = kwargs['type']
+            by = kwargs['by']
             locator = kwargs['locator']
             text = str(kwargs['input'])
+            index = kwargs.get('index')
         except KeyError:
-            return False, '缺少传参'
-        _isOK, _strLOG = self.find_element(type_, locator)
-        if not _isOK:  # 元素没找到，返回失败结果
-            return _isOK, _strLOG
-        elem = _strLOG
+            return '缺少传参'
+        elem = self.find((by, locator))[index] if index else self.find(by, locator)
         try:
             elem.send_keys(text)
-        except Exception:
-            screenshot_path = self.get_screenshot_as_file()
-            log.error('元素[' + locator + ']输入[' + text + ']失败,已截图[' + screenshot_path + '].')
-            return False, '元素[' + locator + ']输入[' + text + ']失败,已截图[' + screenshot_path + '].'
-        log.info('元素[' + locator + ']输入[' + text + ']成功')
-        return True, '元素[' + locator + ']输入[' + text + ']成功'
-
-    def elements_input(self, **kwargs):
-        """
-        输入
-        :param kwargs:
-        :return:
-        """
-        try:
-            type_ = kwargs['type']
-            locator = kwargs['locator']
-            text = str(kwargs['input'])
-        except KeyError:
-            return False, '缺少传参'
-        try:
-            index = kwargs['index']
-        except KeyError:
-            index = 0
-        _isOK, _strLOG = self.find_index_elements(type_, locator, index)
-        if not _isOK:  # 元素没找到，返回失败结果
-            return _isOK, _strLOG
-        elem = _strLOG
-        # if 'test' != elem.get_property('type'):     #校验元素是不是text输入框
-        #     screenshot_path = self.get_screenshot_as_file()
-        #     return False, '元素['+ itor +']不是输入框,输入失败,已截图[' + screenshot_path + '].'
-        try:
-            elem.send_keys(text)
-        except Exception:
-            screenshot_path = self.get_screenshot_as_file()
-            log.error('元素[' + locator + ']输入[' + text + ']失败,已截图[' + screenshot_path + '].')
-            return False, '元素[' + locator + ']输入[' + text + ']失败,已截图[' + screenshot_path + '].'
-        log.info('元素[' + locator + ']输入[' + text + ']成功')
-        return True, '元素[' + locator + ']输入[' + text + ']成功'
+            self.error_cont = 0
+            log.info(f'元素[{locator}]输入[{text}]成功')
+            return True
+        except Exception as e:
+            self.error_cont += 1
+            if self.error_cont >= config.get('ERROR_MAX'):
+                screenshot_path = self.get_screenshot_as_file()
+                log.error(e)
+                log.error(f'获取元素{by, locator}输入{text}失败,已截图[{screenshot_path}].')
+                raise e
+            for black in config.get('BLACK_LIST'):
+                elem = self.driver.find_elements(*black)
+                if len(elem) > 0:
+                    elem[0].click()
+                    return self.element_input(**kwargs)
 
     def element_title_index(self, **kwargs):
         """
@@ -286,15 +183,12 @@ class WebdriverOperator:
         :return:
         """
         try:
-            type_ = kwargs['type']
+            by = kwargs['by']
             locator = kwargs['locator']
             text = str(kwargs['title'])
         except KeyError:
             return False, '缺少传参'
-        _isOK, _strLOG = self.find_elements(type_, locator)
-        if not _isOK:  # 元素没找到，返回失败结果
-            return _isOK, _strLOG
-        elem = _strLOG
+        elem = self.find((by, locator))
         index = []
         for i in range(elem):
             title = elem[i].title
@@ -302,8 +196,8 @@ class WebdriverOperator:
                 index.append(i)
         if index == []:
             log.error('元素[' + locator + ']查找[' + text + ']下标失败.')
-            return False, '元素[' + locator + ']查找[' + text + ']下标失败.'
-        return True, index
+            return '元素[' + locator + ']查找[' + text + ']下标失败.'
+        return index
 
     def query_element_text(self, **kwargs):
         """
@@ -312,19 +206,16 @@ class WebdriverOperator:
         :return:
         """
         try:
-            type_ = kwargs['type']
+            by = kwargs['by']
             locator = kwargs['locator']
         except KeyError:
-            return False, '缺少传参'
-        _isOK, _strLOG = self.find_elements(type_, locator)
-        if not _isOK:  # 元素没找到，返回失败结果
-            return _isOK, _strLOG
-        elem = _strLOG
+            return '缺少传参'
+        elem = self.find((by, locator))
         index = []
         for i in range(len(elem)):
             title = elem[i].text
             index.append(title)
         if index == []:
             log.error('元素[' + locator + ']查找[]下标失败.')
-            return False, '元素[' + locator + ']查找[]下标失败.'
-        return True, index
+            return '元素[' + locator + ']查找[]下标失败.'
+        return index
